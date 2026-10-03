@@ -1,0 +1,39 @@
+.container.stencils-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 36px);
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    padding: 84px clamp(24px, 5vw, 72px) 40px;
+}
+
+.stencils-gallery figure {
+    margin: 0;
+}
+
+.stencil-image {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.stencils-gallery img {
+    width: 100%;
+    height: auto;
+    transition: opacity 180ms ease-in-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .stencil-image:hover img {
+        opacity: 0.75;
+    }
+}
+
+@media (max-width: 600px) {
+    .container.stencils-gallery {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 76px 24px 30px;
+    }
+}

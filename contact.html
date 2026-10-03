@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>contact | the bugs are crying</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./index.css?v=33">
+        <link rel="stylesheet" href="./contact.css?v=3">
+        <link rel="icon" href="./favicon.ico">
+        <link rel="icon" type="image/png" sizes="256x256" href="./favico-kasen.png?v=1">
+        <link rel="shortcut icon" type="image/x-icon" href="./favico-kasen.ico?v=1">
+        <link rel="apple-touch-icon" sizes="256x256" href="./favico-kasen.png?v=1">
+    </head>
+    <body>
+        <div class="header contact-header">
+            <h1 class="title contact-brand">
+                <a href="./index.html">bugs cry</a>
+            </h1>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+                <span class="menu-icon" aria-hidden="true"></span>
+                <span class="menu-label">menu</span>
+            </button>
+            <nav class="site-menu" id="site-menu" aria-label="Main navigation">
+                <ul>
+                    <li><a href="./tattoos.html">tattoos</a></li>
+                    <li><a href="./stencils.html">stencils</a></li>
+                    <li><a href="./about.html">about</a></li>
+                    <li><a href="./contact.html" aria-current="page">contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main class="contact-page">
+            <section class="contact-sheet" aria-labelledby="contact-title">
+                <h1 id="contact-title">get in touch</h1>
+                <form action="https://formsubmit.co/bugscry@gmail.com" method="post" enctype="multipart/form-data">
+                    <label for="contact-name">name</label>
+                    <input id="contact-name" name="name" type="text" autocomplete="name" required>
+
+                    <label for="contact-city">city</label>
+                    <input id="contact-city" name="city" type="text" autocomplete="address-level2" required>
+
+                    <label for="contact-email">email</label>
+                    <input id="contact-email" name="email" type="email" autocomplete="email" required>
+
+                    <label for="contact-budget">budget</label>
+                    <input id="contact-budget" name="budget" type="number" min="0" step="1" inputmode="decimal" placeholder="$">
+
+                    <fieldset class="contact-design">
+                        <legend>design</legend>
+                        <div class="contact-design-options">
+                            <label>
+                                <input type="radio" name="design" value="flash" required>
+                                flash
+                            </label>
+                            <label>
+                                <input type="radio" name="design" value="custom">
+                                custom
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <label for="contact-placement">placement</label>
+                    <textarea id="contact-placement" name="placement" rows="3" required></textarea>
+
+                    <label for="contact-photo">photo for your design (optional)</label>
+                    <input id="contact-photo" class="contact-photo-input" name="photo" type="file" accept="image/*" aria-describedby="contact-photo-help">
+                    <p class="contact-photo-help" id="contact-photo-help">Choose a reference photo or design image to include with your message.</p>
+                    <div class="contact-photo-preview" hidden>
+                        <img alt="Preview of your selected design photo">
+                        <button class="contact-photo-remove" type="button">remove photo</button>
+                    </div>
+                    <p class="contact-photo-status" aria-live="polite"></p>
+
+                    <button class="contact-submit" type="submit">send message <span class="contact-submit-arrow" aria-hidden="true"></span></button>
+                </form>
+            </section>
+        </main>
+        <script src="./navigation.js?v=1"></script>
+        <script src="./contact.js?v=1"></script>
+    </body>
+</html>
