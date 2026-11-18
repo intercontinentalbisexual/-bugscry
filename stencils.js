@@ -1,3 +1,40 @@
+const stencilGallery = document.querySelector('.stencils-gallery');
+const stencilGutter = 10;
+
+function getStencilColumnCount() {
+    return window.innerWidth <= 600 ? 1 : 2;
+}
+
+function getStencilColumnWidth() {
+    const styles = getComputedStyle(stencilGallery);
+    const horizontalPadding = parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+    const contentWidth = stencilGallery.clientWidth - horizontalPadding;
+    return (contentWidth - stencilGutter * (getStencilColumnCount() - 1)) / getStencilColumnCount();
+}
+
+const stencilMasonry = new Masonry(stencilGallery, {
+    itemSelector: 'figure',
+    columnWidth: getStencilColumnWidth(),
+    gutter: stencilGutter,
+    resize: false
+});
+
+function layoutStencilGallery() {
+    const columnWidth = getStencilColumnWidth();
+    stencilGallery.querySelector('.stencil-sizer').style.width = `${columnWidth}px`;
+    stencilGallery.querySelectorAll('figure').forEach(figure => {
+        figure.style.width = `${columnWidth}px`;
+    });
+    stencilMasonry.options.columnWidth = columnWidth;
+    stencilMasonry.layout();
+}
+
+layoutStencilGallery();
+stencilGallery.querySelectorAll('img').forEach(image => {
+    image.addEventListener('load', layoutStencilGallery, { once: true });
+});
+window.addEventListener('resize', layoutStencilGallery);
+
 const stencilButtons = Array.from(document.querySelectorAll('.stencil-image'));
 const stencilImages = stencilButtons.map(button => button.querySelector('img'));
 
